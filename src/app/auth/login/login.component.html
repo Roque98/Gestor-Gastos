@@ -4,11 +4,14 @@
             <div class="col-lg-4 mx-auto">
                 <h2 class="text-center mb-4" style="color: white;">Ingresar</h2>
                 <div class="auto-form-wrapper">
-                    <form action="#">
+
+
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        
                         <div class="form-group">
                             <label class="label">Usuario</label>
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input formControlName="email" type="email" class="form-control" placeholder="Email">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="mdi mdi-check-circle-outline"></i>
@@ -16,10 +19,11 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="label">Contraseña</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" placeholder="*********">
+                                <input formControlName="password" type="password" class="form-control" placeholder="*********">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="mdi mdi-check-circle-outline"></i>
@@ -27,8 +31,13 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="form-group">
-                            <button class="btn btn-primary submit-btn btn-block">Login</button>
+                            <button *ngIf="!isLoading" [disabled]="form.invalid" type="submit" class="btn btn-primary submit-btn btn-block">Login</button>
+                            <button *ngIf="isLoading" disabled="true" type="button" class="btn btn-primary submit-btn btn-block">
+                                <i class="fa fa-sync fa-spin"></i>
+                            </button>
                         </div>
 
 
@@ -36,14 +45,12 @@
                             <span class="text-small font-weight-semibold">No estas registrado? </span>
                             <br>
                             <a [routerLink]="['/auth', 'register']" class="text-black text-small">Crear una cuenta</a>
-
                         </div>
                     </form>
+
+
                 </div>
-
-
             </div>
         </div>
     </div>
-    <!-- content-wrapper ends -->
 </div>

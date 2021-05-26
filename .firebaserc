@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pruebas-6a264": {
+      "hosting": {
+        "ingreso-egreso": [
+          "pruebas-6a264"
+        ]
+      }
+    }
+  }
+}

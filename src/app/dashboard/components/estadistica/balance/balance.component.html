@@ -1,0 +1,23 @@
+<div class="col-12">
+    <div class="card card-statistics">
+      <div class="card-body">
+
+          <div class="clearfix">
+              <div class="float-left">
+                <i class="fa fa-building text-info icon-lg"></i>
+              </div>
+              <div class="float-right">
+                <p class="mb-0 text-right">Diferencia</p>
+                <div class="fluid-container">
+                  <h3 [class.text-success]=" totalIngresos - totalEgresos >= 0 "
+                      [class.text-danger]=" totalIngresos - totalEgresos < 0 ">
+                    {{ totalIngresos - totalEgresos | currency }}
+                  </h3>
+                </div>
+              </div>
+            </div>
+      
+      
+      </div>    
+  </div>
+</div>
